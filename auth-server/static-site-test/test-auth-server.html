@@ -76,6 +76,7 @@
 
     getAccessToken.onclick = function () {
       let code = codeValue.value;
+      const headers = { "Access-Control-Allow-Origin": "*" };
 
       if (decodeURIComponent(code) === code) {
         code = encodeURIComponent(codeValue.value);
@@ -87,6 +88,23 @@
         })
         .then(function (json) {
           accessTokenElement.innerText = JSON.stringify(json);
+        });
+    };
+
+    const getEvents = document.getElementById("getEvents");
+    const events = document.getElementById("events");
+    const getCalendarEvents = "https://34fflj9wpl.execute-api.us-west-1.amazonaws.com/dev/api/get-events";
+
+    getEvents.onclick = function () {
+      const { access_token } = JSON.parse(accessTokenElement.innerText);
+      const headers = { "Access-Control-Allow-Origin": "*" };
+      const eventRequest = getCalendarEvents + "/" + access_token;
+      fetch(eventRequest)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (json) {
+          events.innerText = JSON.stringify(json, null, 2);
         });
     };
   </script>
