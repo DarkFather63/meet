@@ -10,7 +10,7 @@ describe('<NumberOfEvents/> component', () => {
   })
 
   test('renders number textbox', () => {
-    expect(NumberOfEventsWrapper.find('.eventsNumber')).toHaveLength(1);
+    expect(NumberOfEventsWrapper.find('.numberOfEvents')).toHaveLength(1);
   });
 
   test('render number in input to be 20 by default', () => {

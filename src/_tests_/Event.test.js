@@ -25,10 +25,6 @@ describe('<Event/> component', () => {
     expect(EventWrapper.find('.start-time')).toHaveLength(1);
   });
 
-  test('render event end time', () => {
-    expect(EventWrapper.find('.end-time')).toHaveLength(1);
-  });
-
   test('render hide/show button', () => {
     expect(EventWrapper.find('.btn')).toHaveLength(1);
   });
