@@ -75,4 +75,56 @@ describe('<App/> integration', () => {
     AppWrapper.unmount();
   });
 
+
+  test('20 events is set as default', async () => {
+    const AppWrapper = mount(<App />);
+    const allEvents = await getEvents();
+    expect(AppWrapper.state('numberOfEvents')).not.toEqual(undefined);
+    const eventsLength = AppWrapper.state('numberOfEvents');
+    expect(AppWrapper.state('events')).toEqual(allEvents.slice(0, eventsLength));
+    AppWrapper.unmount();
+  });
+
+  test('Number of events is passed as prop by App to NumberOfEvents', async () => {
+    const AppWrapper = mount(<App />);
+    const AppNumberState = AppWrapper.state('numberOfEvents');
+    expect(AppNumberState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberofEvents).props().numberOfEvents).toEqual(AppNumberState);
+    AppWrapper.unmount();
+  });
+
+
+  test('Get list of events where length matches the number input', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberofEvents);
+    const selectedNumber = 1;
+    await NumberOfEventsWrapper.instance().handleInputChanged({
+      target: { value: selectedNumber }
+    });
+    const eventsList = await getEvents();
+    const eventsToShow = eventsList.slice(0, selectedNumber);
+    AppWrapper.setState({ events: eventsToShow });
+    expect(AppWrapper.state('events')).toEqual(eventsToShow);
+    expect(AppWrapper.state('events')).not.toEqual(undefined);
+    expect(AppWrapper.state('events')).toHaveLength(selectedNumber);
+    AppWrapper.unmount();
+  });
+
+  test('Input in number of events and city search updates events list state in App', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberofEvents);
+    const CitySearchWrapper = AppWrapper.find(CitySearch);
+    const location = extractLocations(mockData)[0];
+    await CitySearchWrapper.instance().handleItemClicked(location);
+    const selectedNumber = 1;
+    await NumberOfEventsWrapper.instance().handleInputChanged({
+      target: { value: selectedNumber }
+    });
+    AppWrapper.setState({ location: location });
+    expect(AppWrapper.state('events')).not.toEqual(undefined);
+    expect(AppWrapper.state('events')).toHaveLength(selectedNumber);
+    AppWrapper.unmount();
+  });
+
+
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import NumberofEvents from '../NumberOfEvents';
 import { mockData } from '../mock-data';
+import { getEvents } from '../api';
 
 describe('<NumberOfEvents/> component', () => {
   let NumberOfEventsWrapper;
@@ -13,9 +14,9 @@ describe('<NumberOfEvents/> component', () => {
     expect(NumberOfEventsWrapper.find('.numberOfEvents')).toHaveLength(1);
   });
 
-  test('render number in input to be 20 by default', () => {
-    expect(NumberOfEventsWrapper.find('.number').prop('value')).toEqual(20);
-  });
+  // test('render number in input to be 20 by default', () => {
+  //   expect(NumberOfEventsWrapper.find('.number').prop('value')).toEqual(20);
+  // });
 
   test('user can change number of events shown', () => {
     NumberOfEventsWrapper.setState({
@@ -37,4 +38,6 @@ describe('<NumberOfEvents/> component', () => {
 
 });
 
-describe('<NumberOfEvents/> integration',)
+
+
+

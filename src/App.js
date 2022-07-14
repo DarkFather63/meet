@@ -6,19 +6,26 @@ import NumberofEvents from './NumberOfEvents';
 import './nprogress.css';
 import { extractLocations, getEvents } from './api';
 
+//add numberOfEvents state here once testing for numberofevents component is complete
 class App extends Component {
   state = {
     events: [],
-    locations: []
+    locations: [],
+    numberOfEvents: 20
   }
 
-  updateEvents = (location) => {
+  updateEvents = (
+    location,
+    numberOfEvents
+  ) => {
     getEvents().then((events) => {
       const locationEvents = (location === 'all')
         ? events
         : events.filter((event) => event.location === location);
+      const eventCount = (numberOfEvents === this.state.numberOfEvents)
       this.setState({
-        events: locationEvents
+        events: locationEvents,
+        numberOfEvents: eventCount
       });
     });
   }
@@ -27,7 +34,7 @@ class App extends Component {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
+        this.setState({ events, locations: extractLocations(events), numberOfEvents: 20 });
       }
     });
   }
@@ -40,8 +47,8 @@ class App extends Component {
     return (
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
-        <NumberofEvents />
-        <EventList events={this.state.events} />
+        <NumberofEvents numberOfEvents={this.state.numberOfEvents} />
+        <EventList events={this.state.events} numberOfEvents={this.state.numberOfEvents} />
       </div>
     );
   }
