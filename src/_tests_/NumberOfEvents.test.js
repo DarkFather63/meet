@@ -11,12 +11,8 @@ describe('<NumberOfEvents/> component', () => {
   })
 
   test('renders number textbox', () => {
-    expect(NumberOfEventsWrapper.find('.numberOfEvents')).toHaveLength(1);
+    expect(NumberOfEventsWrapper.find('.event-count')).toHaveLength(1);
   });
-
-  // test('render number in input to be 20 by default', () => {
-  //   expect(NumberOfEventsWrapper.find('.number').prop('value')).toEqual(20);
-  // });
 
   test('user can change number of events shown', () => {
     NumberOfEventsWrapper.setState({

@@ -11,11 +11,12 @@ class Event extends Component {
     });
   }
 
+  //Add css to element to hide/display event details
   render() {
     const { event } = this.props;
     return <div className="event">
       <h4 className="title">{event.summary}</h4>
-      <p className="start-time">Starts: {event.start.dateTime}</p>
+      <p className="start-time">Starts: {event.start.dateTime.to}</p>
       <p className="details">{event.description}</p>
 
       <button className="btn" onClick={() => this.handleClick(this.state)}>{this.state.collapsed ? 'Show details' : 'Hide Details'}</button>
@@ -23,5 +24,6 @@ class Event extends Component {
 
     </div>;
   }
-}
+};
+
 export default Event;

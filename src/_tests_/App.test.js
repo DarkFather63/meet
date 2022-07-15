@@ -76,7 +76,7 @@ describe('<App/> integration', () => {
   });
 
 
-  test('20 events is set as default', async () => {
+  test('20 events is set as state default', async () => {
     const AppWrapper = mount(<App />);
     const allEvents = await getEvents();
     expect(AppWrapper.state('numberOfEvents')).not.toEqual(undefined);
@@ -94,37 +94,19 @@ describe('<App/> integration', () => {
   });
 
 
-  test('Get list of events where length matches the number input', async () => {
+  test('Get list of events matching length to number selected by user', async () => {
     const AppWrapper = mount(<App />);
     const NumberOfEventsWrapper = AppWrapper.find(NumberofEvents);
-    const selectedNumber = 1;
-    await NumberOfEventsWrapper.instance().handleInputChanged({
-      target: { value: selectedNumber }
-    });
-    const eventsList = await getEvents();
-    const eventsToShow = eventsList.slice(0, selectedNumber);
-    AppWrapper.setState({ events: eventsToShow });
-    expect(AppWrapper.state('events')).toEqual(eventsToShow);
-    expect(AppWrapper.state('events')).not.toEqual(undefined);
-    expect(AppWrapper.state('events')).toHaveLength(selectedNumber);
+    const eventObject = { target: { value: 5 } };
+    NumberOfEventsWrapper.find('.number').simulate('change', eventObject);
+    await getEvents();
+    AppWrapper.update();
+    const EventListWrapper = AppWrapper.find(EventList);
+    expect(AppWrapper.state('events')).toHaveLength(5);
+    expect(EventListWrapper.props().events).toHaveLength(5);
     AppWrapper.unmount();
   });
 
-  test('Input in number of events and city search updates events list state in App', async () => {
-    const AppWrapper = mount(<App />);
-    const NumberOfEventsWrapper = AppWrapper.find(NumberofEvents);
-    const CitySearchWrapper = AppWrapper.find(CitySearch);
-    const location = extractLocations(mockData)[0];
-    await CitySearchWrapper.instance().handleItemClicked(location);
-    const selectedNumber = 1;
-    await NumberOfEventsWrapper.instance().handleInputChanged({
-      target: { value: selectedNumber }
-    });
-    AppWrapper.setState({ location: location });
-    expect(AppWrapper.state('events')).not.toEqual(undefined);
-    expect(AppWrapper.state('events')).toHaveLength(selectedNumber);
-    AppWrapper.unmount();
-  });
 
 
 });
