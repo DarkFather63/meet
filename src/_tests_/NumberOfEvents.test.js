@@ -7,7 +7,7 @@ import { getEvents } from '../api';
 describe('<NumberOfEvents/> component', () => {
   let NumberOfEventsWrapper;
   beforeAll(() => {
-    NumberOfEventsWrapper = shallow(<NumberofEvents />)
+    NumberOfEventsWrapper = shallow(<NumberofEvents updateNumberOfEvents={() => { }} />)
   })
 
   test('renders number textbox', () => {
