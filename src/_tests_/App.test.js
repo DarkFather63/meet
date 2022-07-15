@@ -78,10 +78,7 @@ describe('<App/> integration', () => {
 
   test('20 events is set as state default', async () => {
     const AppWrapper = mount(<App />);
-    const allEvents = await getEvents();
-    expect(AppWrapper.state('numberOfEvents')).not.toEqual(undefined);
-    const eventsLength = AppWrapper.state('numberOfEvents');
-    expect(AppWrapper.state('events')).toEqual(allEvents.slice(0, eventsLength));
+    expect(AppWrapper.state('numberOfEvents')).toBe(20);
     AppWrapper.unmount();
   });
 
@@ -93,16 +90,41 @@ describe('<App/> integration', () => {
     AppWrapper.unmount();
   });
 
+  test('State of numberOfEvents in App changes when input is changed', async () => {
+    const AppWrapper = mount(<App />);
+    const numberInput = AppWrapper.find(NumberofEvents).find('.number');
+    const eventObject = { target: { value: 10 } };
+    numberInput.at(0).simulate('change', eventObject);
+    expect(AppWrapper.state('numberOfEvents')).toBe(10);
+    AppWrapper.unmount();
+  });
+
+  test('EventList lists events at length no longer than the state of numberOfEvents in App', async () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.setState({ 'numberOfEvents': 1 });
+    await getEvents();
+    expect(AppWrapper.state('events')).toHaveLength(1);
+    AppWrapper.unmount();
+  });
+
+  test('When the specified number of events is greater than the number of available events, all events show', async () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.setState({ 'numberOfEvents': 30 });
+    await getEvents();
+    expect(AppWrapper.state('events')).toHaveLength(2);
+    AppWrapper.unmount();
+  });
+
 
   test('Get list of events matching length to number selected by user', async () => {
     const AppWrapper = mount(<App />);
     const NumberOfEventsWrapper = AppWrapper.find(NumberofEvents);
-    const eventObject = { target: { value: 5 } };
+    const eventObject = { target: { value: 1 } };
     NumberOfEventsWrapper.find('.number').simulate('change', eventObject);
     await getEvents();
     AppWrapper.update();
     const EventListWrapper = AppWrapper.find(EventList);
-    expect(AppWrapper.state('events')).toHaveLength(5);
+    expect(AppWrapper.state('events')).toHaveLength(1);
     expect(EventListWrapper.props().events).toHaveLength(5);
     AppWrapper.unmount();
   });

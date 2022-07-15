@@ -8,7 +8,7 @@ class NumberofEvents extends Component {
     if (!isNaN(value) && value >= 0) {
       this.setState({
         numberOfEvents: value
-      });
+      })
       this.props.updateNumberOfEvents(value);
     } else {
       this.setState({ Error: 'Please select a number greater than 0.' });
@@ -16,9 +16,10 @@ class NumberofEvents extends Component {
   };
 
   render() {
+    const { numberOfEvents } = this.props;
     return <div className="event-count">
       <p>Number of Events:</p>
-      <input className="number" type="number" min="1" max="100" value={this.props} onChange={this.handleInputChanged}>
+      <input className="number" type="number" min="1" max="100" value={numberOfEvents} onChange={this.handleInputChanged}>
 
       </input>
 
