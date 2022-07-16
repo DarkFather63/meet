@@ -14,8 +14,7 @@ class EventList extends Component {
         {events.map(event =>
           <li key={event.id} length={numberOfEvents}>
             <Event event={event} />
-          </li>,
-          console.log(li.length)
+          </li>
         )}
 
       </ul>
