@@ -38,6 +38,11 @@ input[type="number"] {
   height: 38px;
 }
 
+input[type="text"],
+input[type="number"] :hover {
+  border-color: #1669f2;
+}
+
 .city {
   width: 250px;
 }
@@ -89,6 +94,7 @@ input[type="number"] {
 
 .details-btn {
   position: absolute;
+  font-size: 12px;
   right: 5px;
   bottom: 5px;
   padding: 5px 8px;
@@ -116,7 +122,7 @@ input[type="number"] {
   overflow-x: hidden;
 }
 
-.numberOfEvents {
+.event-count {
   margin: 10px auto;
   text-align: left;
 }

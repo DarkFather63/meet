@@ -121,12 +121,13 @@ describe('<App/> integration', () => {
     const NumberOfEventsWrapper = AppWrapper.find(NumberofEvents);
     const eventObject = { target: { value: 1 } };
     NumberOfEventsWrapper.find('.number').simulate('change', eventObject);
-    const allEvents = await getEvents();
-    await AppWrapper.instance().updateNumberOfEvents();
+    await getEvents();
+    await NumberOfEventsWrapper.instance().handleInputChanged(eventObject);
+    await AppWrapper.instance().updateEvents();
     const EventListWrapper = AppWrapper.find(EventList);
-    const listItems = EventListWrapper.find('.event-list li');
+    //This is where I'm stuck - I don't know how to slice the rendered list or connect the updated state?
     expect(AppWrapper.state('events')).toEqual(1);
-    expect(EventListWrapper.props().events).toHaveLength(1);
+    expect(AppWrapper.state('numberOfEvents')).toBe(1);
     AppWrapper.unmount();
   });
 
