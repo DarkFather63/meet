@@ -7,7 +7,7 @@ import { getEvents } from '../api';
 describe('<NumberOfEvents/> component', () => {
   let NumberOfEventsWrapper;
   beforeAll(() => {
-    NumberOfEventsWrapper = shallow(<NumberofEvents updateNumberOfEvents={() => { }} />)
+    NumberOfEventsWrapper = shallow(<NumberofEvents updateEvents={() => { }} />)
   })
 
   test('renders number textbox', () => {
@@ -19,17 +19,17 @@ describe('<NumberOfEvents/> component', () => {
       numberOfEvents: 20
     });
     const eventObject = { target: { value: 10 } };
-    NumberOfEventsWrapper.find('.number').simulate('change', eventObject);
+    NumberOfEventsWrapper.find('.event-number').simulate('change', eventObject);
     expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(10);
   });
 
   test('only numbers > 0 allowed', () => {
     NumberOfEventsWrapper.setState({
-      numberOfEvents: 10
+      numberOfEvents: 20
     });
     const eventObject = { target: { value: -2 } };
-    NumberOfEventsWrapper.find('.number').simulate('change', eventObject);
-    expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(10);
+    NumberOfEventsWrapper.find('.event-number').simulate('change', eventObject);
+    expect(NumberOfEventsWrapper.state('numberOfEvents')).toEqual(20);
   });
 
 });

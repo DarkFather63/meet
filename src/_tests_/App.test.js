@@ -92,7 +92,7 @@ describe('<App/> integration', () => {
 
   test('State of numberOfEvents in App changes when input is changed', async () => {
     const AppWrapper = mount(<App />);
-    const numberInput = AppWrapper.find(NumberofEvents).find('.number');
+    const numberInput = AppWrapper.find(NumberofEvents).find('.event-number');
     const eventObject = { target: { value: 10 } };
     numberInput.at(0).simulate('change', eventObject);
     expect(AppWrapper.state('numberOfEvents')).toBe(10);
@@ -120,14 +120,15 @@ describe('<App/> integration', () => {
     const AppWrapper = mount(<App />);
     const NumberOfEventsWrapper = AppWrapper.find(NumberofEvents);
     const eventObject = { target: { value: 1 } };
-    NumberOfEventsWrapper.find('.number').simulate('change', eventObject);
+    NumberOfEventsWrapper.find('.event-number').simulate('change', eventObject);
     await getEvents();
     await NumberOfEventsWrapper.instance().handleInputChanged(eventObject);
     await AppWrapper.instance().updateEvents();
     const EventListWrapper = AppWrapper.find(EventList);
+    expect(EventListWrapper.length).toEqual(1);
     //This is where I'm stuck - I don't know how to slice the rendered list or connect the updated state?
-    expect(AppWrapper.state('events')).toEqual(1);
-    expect(AppWrapper.state('numberOfEvents')).toBe(1);
+    expect(AppWrapper.state('events')).toHaveLength(1);
+    expect(AppWrapper.state('numberOfEvents')).toEqual(1);
     AppWrapper.unmount();
   });
 
