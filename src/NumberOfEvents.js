@@ -5,10 +5,10 @@ class NumberofEvents extends Component {
 
   handleInputChanged = (event) => {
     const selectedValue = parseInt(event.target.value);
-    if (!isNaN(selectedValue) && selectedValue >= 0) {
+    if (selectedValue <= 20 && selectedValue > 0) {
       this.setState({
         numberOfEvents: selectedValue
-      })
+      });
     } else {
       this.setState({
         numberOfEvents: 20,

@@ -5,12 +5,12 @@ class EventList extends Component {
 
 
   render() {
-    const { events, numberOfEvents } = this.props;
+    const { events } = this.props;
 
     return (
       <ul className='event-list'>
         {events.map(event =>
-          <li key={event.id} length={numberOfEvents}>
+          <li key={event.id}>
             <Event event={event} />
           </li>
         )}

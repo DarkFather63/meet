@@ -7,6 +7,7 @@ import './nprogress.css';
 import { extractLocations, getEvents } from './api';
 
 class App extends Component {
+
   state = {
     events: [],
     locations: [],
@@ -15,7 +16,7 @@ class App extends Component {
   }
 
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
@@ -23,10 +24,12 @@ class App extends Component {
           events: events.slice(0, this.state.numberOfEvents),
           locations: extractLocations(events)
         });
-      } else {
-        console.log(this.state.events)
       }
     });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   updateEvents = (
@@ -41,7 +44,6 @@ class App extends Component {
     if (location === undefined) {
       location = this.state.selectedLocation
     }
-    this.mounted = true;
     getEvents().then((events) => {
       const locationEvents = (location === 'all')
         ? events
@@ -57,9 +59,6 @@ class App extends Component {
   }
 
 
-  componentWillUnmount() {
-    this.mounted = false;
-  }
 
 
 

@@ -39,7 +39,7 @@ input[type="number"] {
 }
 
 input[type="text"],
-input[type="number"] :hover {
+input[type="number"]:hover {
   border-color: #1669f2;
 }
 
@@ -83,7 +83,7 @@ input[type="number"] :hover {
   background-color: #bcdcdb;
 }
 
-.event {
+/* .event_details {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
@@ -92,15 +92,16 @@ input[type="number"] :hover {
   position: relative;
   display: none;
   overflow: hidden;
-}
+} */
 
-.details-btn {
-  position: absolute;
+.btn {
+  position: relative;
   font-size: 12px;
   right: 5px;
   bottom: 5px;
   padding: 5px 8px;
   border-radius: 4px;
+  margin: auto;
   outline: none;
   cursor: pointer;
 }
@@ -118,10 +119,6 @@ input[type="number"] :hover {
 .going,
 .visibility {
   font-style: italic;
-}
-
-.description {
-  overflow-x: hidden;
 }
 
 .event-count {
