@@ -6,13 +6,27 @@ import NumberofEvents from './NumberOfEvents';
 import './nprogress.css';
 import { extractLocations, getEvents } from './api';
 
-//add numberOfEvents state here once testing for numberofevents component is complete
 class App extends Component {
   state = {
     events: [],
     locations: [],
     selectedLocation: 'all',
     numberOfEvents: 20
+  }
+
+
+  componentDidMount() {
+    this.mounted = true;
+    getEvents().then((events) => {
+      if (this.mounted) {
+        this.setState({
+          events: events.slice(0, this.state.numberOfEvents),
+          locations: extractLocations(events)
+        });
+      } else {
+        console.log(this.state.events)
+      }
+    });
   }
 
   updateEvents = (
@@ -42,17 +56,6 @@ class App extends Component {
     });
   }
 
-  componentDidMount() {
-    this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({
-          events: events.slice(0, this.state.numberOfEvents),
-          locations: extractLocations(events)
-        });
-      }
-    });
-  }
 
   componentWillUnmount() {
     this.mounted = false;

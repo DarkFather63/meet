@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Event from './Event';
 
 class EventList extends Component {
-  // state = {
-  //   eventCount: undefined
-  // }
+
 
   render() {
     const { events, numberOfEvents } = this.props;
