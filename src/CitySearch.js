@@ -30,6 +30,7 @@ class CitySearch extends Component {
   render() {
     return (
       <div className='CitySearch'>
+        <h3>Select Your Nearest City</h3>
         <input type='text'
           className='city'
           value={this.state.query}

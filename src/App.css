@@ -83,16 +83,19 @@ input[type="number"]:hover {
   background-color: #bcdcdb;
 }
 
-/* .event_details {
+.event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
-  display: none;
-  overflow: hidden;
-} */
+}
+
+.event-link {
+  padding: 10px;
+  margin: auto;
+}
 
 .btn {
   position: relative;
@@ -101,7 +104,7 @@ input[type="number"]:hover {
   bottom: 5px;
   padding: 5px 8px;
   border-radius: 4px;
-  margin: auto;
+  margin: 10px;
   outline: none;
   cursor: pointer;
 }

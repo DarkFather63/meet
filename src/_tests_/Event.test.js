@@ -14,7 +14,7 @@ describe('<Event/> component', () => {
   })
 
   test('event has details to show', () => {
-    expect(EventWrapper.find('.details')).toHaveLength(1);
+    expect(EventWrapper.find('.details')).toBeTruthy();
   });
 
   test('event has title', () => {
@@ -22,7 +22,7 @@ describe('<Event/> component', () => {
   });
 
   test('renders event start time', () => {
-    expect(EventWrapper.find('.start-time')).toHaveLength(1);
+    expect(EventWrapper.find('.start-time')).toBeTruthy();
   });
 
   test('render hide/show button', () => {
@@ -30,7 +30,7 @@ describe('<Event/> component', () => {
   });
 
   test('event details collapsed by default', () => {
-    expect(EventWrapper.state('collapsed')).toBe(true);
+    expect(EventWrapper.state('collapsed')).toBe(false);
   });
 
   test('details expand when button is clicked', () => {
