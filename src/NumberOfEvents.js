@@ -12,7 +12,7 @@ class NumberofEvents extends Component {
         errorText: ''
       });
     } else if (selectedValue <= 0) {
-      this.setState({
+      return this.setState({
         numberOfEvents: 20,
         errorText: 'Please select a number greater than 0.'
       })
@@ -25,7 +25,7 @@ class NumberofEvents extends Component {
     return <div className="event-count">
       <p>Number of Events:</p>
       <ErrorAlert text={this.state.errorText} />
-      <input className="event-number" type="number" value={numberOfEvents} onChange={this.handleInputChanged}>
+      <input className="event-number" type="number" min="1" max="100" value={numberOfEvents} onChange={this.handleInputChanged}>
 
       </input>
 
