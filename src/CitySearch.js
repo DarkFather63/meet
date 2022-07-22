@@ -41,8 +41,8 @@ class CitySearch extends Component {
   render() {
     return (
       <div className='CitySearch'>
-        <InfoAlert text={this.state.infoText} />
         <h3>Select Your Nearest City</h3>
+        <InfoAlert text={this.state.infoText} />
         <input type='text'
           className='city'
           value={this.state.query}
