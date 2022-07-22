@@ -25,7 +25,7 @@ class NumberofEvents extends Component {
     return <div className="event-count">
       <p>Number of Events:</p>
       <ErrorAlert text={this.state.errorText} />
-      <input className="event-number" type="number" min="1" max="100" value={numberOfEvents} onChange={this.handleInputChanged}>
+      <input className="event-number" type="number" value={numberOfEvents} onChange={this.handleInputChanged}>
 
       </input>
 
