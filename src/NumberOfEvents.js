@@ -7,7 +7,7 @@ class NumberofEvents extends Component {
   handleInputChanged = (event) => {
     const selectedValue = parseInt(event.target.value);
     if (selectedValue <= 20 && selectedValue > 0) {
-      this.setState({
+      return this.setState({
         numberOfEvents: selectedValue,
         errorText: ''
       });
