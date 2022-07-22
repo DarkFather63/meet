@@ -6,15 +6,15 @@ class NumberofEvents extends Component {
 
   handleInputChanged = (event) => {
     const selectedValue = parseInt(event.target.value);
-    if (selectedValue <= 20 && selectedValue > 0) {
+    if (selectedValue > 20 || selectedValue < 0) {
+      return this.setState({
+        numberOfEvents: 20,
+        errorText: 'Please select a number between 0 and 20.'
+      });
+    } else if (selectedValue <= 20 && selectedValue > 0) {
       return this.setState({
         numberOfEvents: selectedValue,
         errorText: ''
-      });
-    } else if (selectedValue <= 0) {
-      return this.setState({
-        numberOfEvents: 20,
-        errorText: 'Please select a number greater than 0.'
       })
     }
     this.props.updateEvents(undefined, selectedValue);
