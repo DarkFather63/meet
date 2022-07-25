@@ -41,15 +41,16 @@ class CitySearch extends Component {
   render() {
     return (
       <div className='CitySearch'>
-        {/* <h3>Select Your Nearest City</h3> */}
         <InfoAlert text={this.state.infoText} />
-        <input type='text'
-          className='city'
-          value={this.state.query}
-          onChange={this.handleInputChanged}
-          onFocus={() => { this.setState({ showSuggestions: true }) }}
-        />
-        <label for='city'>Select Your Nearest City</label>
+        <label>
+          <input type='text'
+            className='city'
+            value={this.state.query}
+            onChange={this.handleInputChanged}
+            onFocus={() => { this.setState({ showSuggestions: true }) }}
+          />
+          Select Your Nearest City
+        </label>
         <ul className='suggestions' style={this.state.showSuggestions ? {} : { display: 'none' }}>
           {this.state.suggestions.map((suggestion) => (
             <li key={suggestion} onClick={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
