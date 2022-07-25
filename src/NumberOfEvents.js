@@ -26,9 +26,12 @@ class NumberofEvents extends Component {
     const { numberOfEvents } = this.props;
     return <div className="event-count">
 
-      <p>Number of Events:</p>
-      <input className="event-number" type="number" min="1" max="20" value={numberOfEvents} onChange={this.handleInputChanged}>
-      </input>
+
+      <label>
+        Number Of Events:
+        <input className="event-number" type="number" min="1" max="20" value={numberOfEvents} onChange={this.handleInputChanged}>
+        </input>
+      </label>
       <ErrorAlert text={this.state.errorText} />
 
 
