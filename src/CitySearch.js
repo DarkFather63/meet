@@ -43,13 +43,13 @@ class CitySearch extends Component {
       <div className='CitySearch'>
         <InfoAlert text={this.state.infoText} />
         <label>
+          Select Your Nearest City:
           <input type='text'
             className='city'
             value={this.state.query}
             onChange={this.handleInputChanged}
             onFocus={() => { this.setState({ showSuggestions: true }) }}
-          /><br></br>
-          Select Your Nearest City
+          />
         </label>
         <ul className='suggestions' style={this.state.showSuggestions ? {} : { display: 'none' }}>
           {this.state.suggestions.map((suggestion) => (
