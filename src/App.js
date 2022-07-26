@@ -6,6 +6,7 @@ import NumberofEvents from './NumberOfEvents';
 import WelcomeScreen from './WelcomeScreen';
 import './nprogress.css';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import { OfflineAlert } from './Alert';
 
 class App extends Component {
@@ -51,6 +52,15 @@ class App extends Component {
     this.mounted = false;
   }
 
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location === location).length
+      const city = location.split(',').shift()
+      return { city, number };
+    })
+    return data;
+  };
 
 
   updateEvents = (
@@ -93,6 +103,18 @@ class App extends Component {
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
         <NumberofEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents} />
         <OfflineAlert text={this.state.offlineText} />
+        <h4>Events in each city</h4>
+
+        <ScatterChart
+          width={730}
+          height={250}
+          margin={{ top: 20, right: 20, bottom: 10, left: 10 }}>
+          <CartesianGrid />
+          <XAxis dataKey="city" type="category" name="city" />
+          <YAxis dataKey="number" type="number" name="number of events" allowDecimals={false} />
+          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+          <Scatter data={this.getData()} fill="#8884d8" />
+        </ScatterChart>
         <EventList events={this.state.events} updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
