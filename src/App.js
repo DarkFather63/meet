@@ -110,8 +110,8 @@ class App extends Component {
           height={400}
           margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
           <CartesianGrid />
-          <XAxis dataKey="city" type="category" name="city" />
-          <YAxis dataKey="number" type="number" name="number of events" />
+          <XAxis type="category" dataKey="city" name="city" />
+          <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
           <Scatter data={this.getData()} fill="#fff" />
         </ScatterChart>
