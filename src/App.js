@@ -106,17 +106,17 @@ class App extends Component {
         <h4>Events in each city</h4>
 
         <ScatterChart
-          width={730}
-          height={250}
-          margin={{ top: 20, right: 20, bottom: 10, left: 10 }}>
+          width={400}
+          height={400}
+          margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
           <CartesianGrid />
           <XAxis dataKey="city" type="category" name="city" />
-          <YAxis dataKey="number" type="number" name="number of events" allowDecimals={false} />
+          <YAxis dataKey="number" type="number" name="number of events" />
           <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter data={this.getData()} fill="#8884d8" />
+          <Scatter data={this.getData()} fill="#fff" />
         </ScatterChart>
         <EventList events={this.state.events} updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />
-        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
+        {/* <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} /> */}
       </div>
     );
   }
