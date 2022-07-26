@@ -106,7 +106,7 @@ class App extends Component {
         <h4>Events in each city</h4>
         <ResponsiveContainer height={400}>
           <ScatterChart
-            margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
             <CartesianGrid />
             <XAxis type="category" dataKey="city" name="city" />
             <YAxis type="number" dataKey="number" name="number of events" allowDecimals={false} />
@@ -115,7 +115,7 @@ class App extends Component {
           </ScatterChart>
         </ResponsiveContainer>
         <EventList events={this.state.events} updateEvents={this.updateEvents} numberOfEvents={this.state.numberOfEvents} />
-        {/* <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} /> */}
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
       </div>
     );
   }
