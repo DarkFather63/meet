@@ -106,8 +106,8 @@ class App extends Component {
         <h4>Events in each city</h4>
 
         <ScatterChart
-          width={400}
-          height={400}
+          width={800}
+          height={800}
           margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
           <CartesianGrid />
           <XAxis type="category" dataKey="city" name="city" />
