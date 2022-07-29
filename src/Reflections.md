@@ -5,41 +5,58 @@ By Eryn Craig, 07/27/2022
 The goal of this app was to create a progressive web application using test driven and behavioral driven development techniques. It uses the Google Calendar API to fetch upcoming events. The app itself is meant to give users events in cities close to them and allow the user to add them to their calendar.
 
 ##My Role & Thoughts##
-I built this project from scratch, and this particular part of the project was the client side for the API I built previously. The client side uses React, JSX, Redux, React Bootstrap, and Axios, in combination with some dependencies like Parcel. I faced a lot of debugging with current updates to these libraries and frameworks, and in the process learned more about them.
+I built this app based on the data provided by Google's calendar API. I used test-driven development with React, making sure each component passed all tests before building more of the app. This then went through integration testing to make sure components would also work together. Additionally, to use the API, Oauth had been implemented. Finally I put the app through end-to-end testing, making sure it was functional. Lastly, I used Object Oriented Programming to add alerts, then converted the web app to a Progressive Web Application.
 
-A lot of keywords have changed over the past couple of years, and the guide I used to build the app was a bit outdated. I had to cross-reference issues, collaborate with classmates and tutors, and sometimes just sit and review or make notes. In some cases I had to use updated versions of dependencies, because the components previously used had been removed or were no longer supported. In these cases there was a lot of research to be done.
+I decided to use some built-in functions like slice() because I have not yet figured out a better way to list a specified number of objects. I know there is a better way, and that this is not best practice, but with my app I have not figured out the answer just yet. I will also be adding more styling in the future.
 
-If I could, I would start the whole project over with up-to-date libraries and frameworks, and study their documentation more thoroughly. Even with the study I did, I did have to outsource problems; however it was usually out of the need for a fresh set of eyes.
+If I could, I would try to better understand how little to add to make tests pass during unit testing - sometimes I believe I would add too much vs the minimum needed. I also need a better grasp on pure functions - I intend to study this more. I know immutability is very important, and sometimes I think I miss the mark on some of my functions. I also have trouble determining where to place certain callbacks and functions, as I need to review hierarchy in React js and native. I learned a lot about these issues during this project, and intend to strengthen my understanding.
 
 ##The Result (in screenshots)##
 
 
-<img width="1440" alt="Screen Shot 2022-06-29 at 10 58 21 AM" src="https://user-images.githubusercontent.com/99092650/176508341-131709e1-3bd3-4305-b73a-2817f864ba9d.png">
-
-<img width="1440" alt="Screen Shot 2022-06-29 at 10 58 29 AM" src="https://user-images.githubusercontent.com/99092650/176508391-9050cabd-c925-4d59-b756-5ef2725654c7.png">
-
-<img width="1440" alt="Screen Shot 2022-06-29 at 10 58 37 AM" src="https://user-images.githubusercontent.com/99092650/176508405-eeebf4e8-d906-4446-aeea-e8f1061b3b6f.png">
-
-<img width="1440" alt="Screen Shot 2022-06-29 at 10 58 42 AM" src="https://user-images.githubusercontent.com/99092650/176508435-49f8e206-86d6-4600-92bc-7a9ad5ba986d.png">
 
 ##Git Repo:##
-https://github.com/DarkFather63/myFlix-client
+https://github.com/DarkFather63/meet
 
 ##Technology used:##
-   "axios": "^0.27.2",
-   "parcel": "^2.0.0-rc.0",
-   "react": "^17.0.2",
-   "react-bootstrap": "^2.4.0",
-   "react-dom": "^17.0.2",
-   "react-redux": "^8.0.2",
-   "react-router-dom": "5.2.0",
-   "redux": "^4.2.0",
-   "redux-devtools-extension": "^2.13.9"
+   "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^12.6.0",
+    "atatus-spa": "^4.5.0",
+    "axios": "^0.27.2",
+    "nprogress": "^0.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.1",
+    "recharts": "^2.1.13",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.4",
+    "workbox-broadcast-update": "^5.1.4",
+    "workbox-cacheable-response": "^5.1.4",
+    "workbox-core": "^5.1.4",
+    "workbox-expiration": "^5.1.4",
+    "workbox-google-analytics": "^5.1.4",
+    "workbox-navigation-preload": "^5.1.4",
+    "workbox-precaching": "^5.1.4",
+    "workbox-range-requests": "^5.1.4",
+    "workbox-routing": "^5.1.4",
+    "workbox-strategies": "^5.1.4",
+    "workbox-streams": "^5.1.4"
 
-These are the dependencies installed for the project. These versions must be used for the project to run. To learn more, visit the repo and check out the README file. The server side also uses Express and is hosted on MongoDB atlas and Heroku. Postman was also used to test endpoints. And in the client side, propTypes is also used to pass props to components where needed (in some cases redux is used instead).
+    devDependencies:
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "enzyme": "^3.11.0",
+    "gh-pages": "^4.0.0",
+    "jest-cucumber": "^3.0.1",
+    "puppeteer": "^15.4.0"
+
+These are the dependencies installed for the project. These versions must be used for the project to run. To learn more, visit the repo and check out the README file. The primary testing tools used were Jest and Puppeteer. They worked great, and I'd recommend them to any learning developers.
 
 Other notes:
 This app was built based on the following user stories:
-As a user, I want to be able to access information on movies, directors, and genres so that I can learn more about movies I’ve watched or am interested in.
- 							
- As a user, I want to be able to create a profile so I can save data about my favorite movies. 
+1.As a user, I would like to be able to filter events by city so that I can see the list of events that take place in that city.
+2. As a user, I would like to be able to show/hide event details so that I can see more/less information about an event.
+3. As a user, I would like to be able to specify the number of events I want to view in the app so that I can see more or fewer events in the events list at once.
+4. As a user, I would like to be able to use the app when offline so that I can see the events I viewed the last time I was online.
+5. As a user, I would like to be able to add the app shortcut to my home screen so that I can open the app faster.
+6. As a user, I would like to be able to see a chart showing the upcoming events in each city so that I know what events are organized in which city.
