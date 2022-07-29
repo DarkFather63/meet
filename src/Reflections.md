@@ -13,6 +13,10 @@ If I could, I would try to better understand how little to add to make tests pas
 
 ##The Result (in screenshots)##
 
+<img width="1440" alt="Screen Shot 2022-07-29 at 10 29 54 AM" src="https://user-images.githubusercontent.com/99092650/181813581-958caabb-1e21-48f0-96f6-4189723be7a3.png">
+<img width="1440" alt="Screen Shot 2022-07-29 at 10 29 58 AM" src="https://user-images.githubusercontent.com/99092650/181813629-b70805f0-22a8-47cf-aa0f-31d404ccf77c.png">
+<img width="1440" alt="Screen Shot 2022-07-29 at 10 30 03 AM" src="https://user-images.githubusercontent.com/99092650/181813689-2992e8df-ae2b-4a77-8d1f-914d5c5a8845.png">
+<img width="1440" alt="Screen Shot 2022-07-29 at 10 30 10 AM" src="https://user-images.githubusercontent.com/99092650/181813709-9d396156-30e6-4da3-8623-b074d00889de.png">
 
 
 ##Git Repo:##
