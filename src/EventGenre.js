@@ -11,7 +11,7 @@ const EventGenre = ({ events }) => {
     [events]
   );
 
-
+  const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
   const getData = () => {
     const genres = ["React", "JavaScript", "Node", "jQuery", "AngularJS"];
@@ -37,7 +37,11 @@ const EventGenre = ({ events }) => {
           dataKey="value"
           nameKey={'genre'}
           label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-        />
+        >
+          {data.map((index) => (
+            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+          ))}
+        </Pie>
 
       </PieChart>
     </ResponsiveContainer>
