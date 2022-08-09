@@ -26,10 +26,10 @@ const EventGenre = ({ events }) => {
 
   return (
     <ResponsiveContainer height={400}>
-      <PieChart width={500} height={500}>
+      <PieChart width={200} height={200}>
         <Pie
           data={data}
-          cx={300}
+          cx={200}
           cy={-200}
           labelLine={false}
           outerRadius={80}
