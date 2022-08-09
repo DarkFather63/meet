@@ -38,7 +38,7 @@ const EventGenre = ({ events }) => {
           nameKey={'genre'}
           label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
         >
-          {data.map((index) => (
+          {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
           ))}
         </Pie>
