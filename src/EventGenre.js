@@ -29,8 +29,8 @@ const EventGenre = ({ events }) => {
       <PieChart width={400} height={400}>
         <Pie
           data={data}
-          cx={500}
-          cy={500}
+          cx={700}
+          cy={700}
           labelLine={false}
           outerRadius={80}
           fill='#fff'
