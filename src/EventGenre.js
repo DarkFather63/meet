@@ -30,7 +30,7 @@ const EventGenre = ({ events }) => {
         <Pie
           data={data}
           cx={400}
-          cy={100}
+          cy={150}
           labelLine={false}
           outerRadius={80}
           fill='#fff'
