@@ -11,6 +11,8 @@ const EventGenre = ({ events }) => {
     [events]
   );
 
+
+
   const getData = () => {
     const genres = ["React", "JavaScript", "Node", "jQuery", "AngularJS"];
     const data = genres.map((genre) => {
@@ -26,7 +28,6 @@ const EventGenre = ({ events }) => {
     <ResponsiveContainer>
       <PieChart width={500} height={400}>
         <Pie
-          getData={() => { getData() }}
           data={data}
           cx={100}
           cy={100}
@@ -34,9 +35,10 @@ const EventGenre = ({ events }) => {
           outerRadius={80}
           fill='#fff'
           dataKey="value"
+          nameKey={'genre'}
           label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-        >
-        </Pie>
+        />
+
       </PieChart>
     </ResponsiveContainer>
   );
