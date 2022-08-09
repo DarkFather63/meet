@@ -11,7 +11,7 @@ const EventGenre = ({ events }) => {
     [events]
   );
 
-  const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#6A0DAD"];
 
   const getData = () => {
     const genres = ["React", "JavaScript", "Node", "jQuery", "AngularJS"];
