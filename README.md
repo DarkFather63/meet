@@ -1,28 +1,62 @@
 # meet
+
 React app for event planning
 
-#About
+## About
+
 This is a serverless, PWA app built using the TDD process. It's main purpose is to show users events by city, date and time, so that they can plan accordingly.
 It uses the Google calendar API to fetch events.
 
-#User Stories:
+## User Stories:
 
-Feature 2: Show/Hide an Event’s Details
+1. As a user, I would like to be able to filter events by city so that I can see the list of events that take place in that city.
+2. As a user, I would like to be able to show/hide event details so that I can see more/less information about an event.
+3. As a user, I would like to be able to specify the number of events I want to view in the app so that I can see more or fewer events in the events list at once.
+4. As a user, I would like to be able to use the app when offline so that I can see the events I viewed the last time I was online.
+5. As a user, I would like to be able to add the app shortcut to my home screen so that I can open the app faster.
+6. As a user, I would like to be able to see a chart showing the upcoming events in each city so that I know what events are organized in which city.
 
-Scenario 1: As a user, I should see the event element collapsed by default, so that I can open it as desired and it won’t obstruct views.
-Scenario 2: As a user, I want to be able to expand an event to see its details so I can read them and understand the event.
-Scenario 3: As a user, I want to be able to collapse an event to hide its details so it doesn’t clutter the screen.
+## How to Use:
 
-Feature 3: Specify Number of Events
+From CLI: `npm run start`
 
-Scenario 1: As a user, I want the default number of events displayed to be 32 when I haven’t specified the number so the screen isn’t overloaded with events.
-Scenario 2: As a user I want to be able to change the number of events I want to see, so I can make decisions about a smaller or larger number.
+**Dependencies required for use:**
 
-Feature 4: Use the App When Offline
+* React
+* Jest-Cucumber
+* Enzyme
+* Puppeteer
+* Atatus-spa
+* Axios
 
-Scenario 1: As a user I want the app to show cached data when there’s no internet connection, so that I can still access that data.
-Scenario 2: As a user I want to see an error displayed when the settings are changed, so that I know what I can access offline.
+This app used Create-React-App for the basic structure before customization and app definition. This means some dependencies are installed automatically when React is used. It also uses Google's Calendar API for events.
 
-Feature 5: Data Visualization
+**Dependencies as defined in package.json:**
 
-Scenario 1: As a user I want the app to show a chart with the number of upcoming events in each city so I can plan around the data displayed.
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^12.6.0",
+    "atatus-spa": "^4.5.0",
+    "axios": "^0.27.2",
+    "nprogress": "^0.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.1",
+    "recharts": "^2.1.13",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.4",
+    "workbox-broadcast-update": "^5.1.4",
+    "workbox-cacheable-response": "^5.1.4",
+    "workbox-core": "^5.1.4",
+    "workbox-expiration": "^5.1.4",
+    "workbox-google-analytics": "^5.1.4",
+    "workbox-navigation-preload": "^5.1.4",
+    "workbox-precaching": "^5.1.4",
+    "workbox-range-requests": "^5.1.4",
+    "workbox-routing": "^5.1.4",
+    "workbox-strategies": "^5.1.4",
+    "workbox-streams": "^5.1.4"
+
+  Please note that not all of these need to be installed individually as they are part of libraries. This is for reference only if you run into errors with dependencies. 
+
+  

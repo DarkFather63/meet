@@ -1,17 +1,17 @@
-###Meet App###
+### Meet App
 By Eryn Craig, 07/27/2022
 
-##About##
+## About
 The goal of this app was to create a progressive web application using test driven and behavioral driven development techniques. It uses the Google Calendar API to fetch upcoming events. The app itself is meant to give users events in cities close to them and allow the user to add them to their calendar.
 
-##My Role & Thoughts##
+## My Role & Thoughts
 I built this app based on the data provided by Google's calendar API. I used test-driven development with React, making sure each component passed all tests before building more of the app. This then went through integration testing to make sure components would also work together. Additionally, to use the API, Oauth had been implemented. Finally I put the app through end-to-end testing, making sure it was functional. Lastly, I used Object Oriented Programming to add alerts, then converted the web app to a Progressive Web Application.
 
 I decided to use some built-in functions like slice() because I have not yet figured out a better way to list a specified number of objects. I know there is a better way, and that this is not best practice, but with my app I have not figured out the answer just yet. I will also be adding more styling in the future.
 
 If I could, I would try to better understand how little to add to make tests pass during unit testing - sometimes I believe I would add too much vs the minimum needed. I also need a better grasp on pure functions - I intend to study this more. I know immutability is very important, and sometimes I think I miss the mark on some of my functions. I also have trouble determining where to place certain callbacks and functions, as I need to review hierarchy in React js and native. I learned a lot about these issues during this project, and intend to strengthen my understanding.
 
-##The Result (in screenshots)##
+## The Result (in screenshots)
 
 <img width="1440" alt="Screen Shot 2022-07-29 at 10 29 54 AM" src="https://user-images.githubusercontent.com/99092650/181813581-958caabb-1e21-48f0-96f6-4189723be7a3.png">
 <img width="1440" alt="Screen Shot 2022-07-29 at 10 29 58 AM" src="https://user-images.githubusercontent.com/99092650/181813629-b70805f0-22a8-47cf-aa0f-31d404ccf77c.png">
@@ -19,10 +19,10 @@ If I could, I would try to better understand how little to add to make tests pas
 <img width="1440" alt="Screen Shot 2022-07-29 at 10 30 10 AM" src="https://user-images.githubusercontent.com/99092650/181813709-9d396156-30e6-4da3-8623-b074d00889de.png">
 
 
-##Git Repo:##
+## Git Repo:
 https://github.com/DarkFather63/meet
 
-##Technology used:##
+## Technology used:
    "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^12.6.0",
@@ -56,7 +56,7 @@ https://github.com/DarkFather63/meet
 
 These are the dependencies installed for the project. These versions must be used for the project to run. To learn more, visit the repo and check out the README file. The primary testing tools used were Jest and Puppeteer. They worked great, and I'd recommend them to any learning developers.
 
-Other notes:
+**Other notes:**
 This app was built based on the following user stories:
 1.As a user, I would like to be able to filter events by city so that I can see the list of events that take place in that city.
 2. As a user, I would like to be able to show/hide event details so that I can see more/less information about an event.
